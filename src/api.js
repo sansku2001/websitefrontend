@@ -1,5 +1,7 @@
+const API_BASE_URL = 'https://websitebackend-h797.onrender.com';
+
 async function request(path, options = {}) {
-  const response = await fetch(path, {
+  const response = await fetch(`${API_BASE_URL}${path}`, {
     credentials: 'include',
     ...options,
     headers: { ...(options.body && !(options.body instanceof FormData) ? { 'Content-Type': 'application/json' } : {}), ...(options.headers || {}) },
